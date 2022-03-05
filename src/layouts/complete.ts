@@ -57,20 +57,17 @@ export function formatCompleteLayout(
     labels = `\`${conclusion.toUpperCase()} [${elapsedSeconds}s]\``;
   }
 
-  // Set section facts
+  // Set section fact
+  commitmessage = escapeMarkdownTokens(commit.data.commit.message)
   section.facts = [
     new Fact(
       "Event type:",
       "`" + process.env.GITHUB_EVENT_NAME?.toUpperCase() + "`"
     ),
     new Fact("Status:", labels),
-    if (process.env.GITHUB_EVENT_NAME !== "workflow_dispatch") {
-    new Fact(
-      "Commit message:",
-      escapeMarkdownTokens(commit.data.commit.message)
-    ),
+    if (process.env.GITHUB_EVENT_NAME !== 'workflow_dispatch')
+    new Fact("Commit message:",commitmessage),
     new Fact("Repository & branch:", `[${branchUrl}](${branchUrl})`),
-    }
   ];
 
   // Set custom facts
