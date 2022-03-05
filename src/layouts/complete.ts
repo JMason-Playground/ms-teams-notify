@@ -65,9 +65,10 @@ export function formatCompleteLayout(
       "`" + process.env.GITHUB_EVENT_NAME?.toUpperCase() + "`"
     ),
     new Fact("Status:", labels),
-    if (process.env.GITHUB_EVENT_NAME !== 'workflow_dispatch')
+    if (process.env.GITHUB_EVENT_NAME !== 'workflow_dispatch'){
     new Fact("Commit message:",commitmessage),
     new Fact("Repository & branch:", `[${branchUrl}](${branchUrl})`),
+  }
   ];
 
   // Set custom facts
