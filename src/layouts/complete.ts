@@ -64,7 +64,7 @@ export function formatCompleteLayout(
       "`" + process.env.GITHUB_EVENT_NAME?.toUpperCase() + "`"
     ),
     new Fact("Status:", labels),
-    if (process.env.GITHUB_EVENT_NAME?.toUpperCase() !== "WORKFLOW_DISPATCH") {
+    if (process.env.GITHUB_EVENT_NAME !== "workflow_dispatch") {
     new Fact(
       "Commit message:",
       escapeMarkdownTokens(commit.data.commit.message)
