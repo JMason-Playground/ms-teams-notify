@@ -65,8 +65,6 @@ export function formatCompleteLayout(
       "`" + process.env.GITHUB_EVENT_NAME?.toUpperCase() + "`"
     ),
     new Fact("Statuss:", labels),
-    new Fact("Commit message:",commitmessage),
-    new Fact("Repository & branch:", `[${branchUrl}](${branchUrl})`),
   ];
 
   // Set custom facts
